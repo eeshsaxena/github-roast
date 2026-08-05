@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitHub Roast · your repos, judged</title>
+  <meta name="description" content="Paste a GitHub username and get roasted. Brutally honest, weirdly accurate, and 100% based on your real repos." />
+  <meta property="og:title" content="GitHub Roast" />
+  <meta property="og:description" content="Get your GitHub profile roasted. Then fix it." />
+  <link rel="preconnect" href="https://api.github.com" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <main class="wrap">
+    <header class="hero">
+      <div class="logo">🔥</div>
+      <h1>GitHub Roast</h1>
+      <p class="tagline">Paste a username. Get roasted. Then glow up.</p>
+    </header>
+
+    <form id="roast-form" class="search" autocomplete="off">
+      <span class="at">@</span>
+      <input
+        id="username"
+        type="text"
+        placeholder="octocat"
+        aria-label="GitHub username"
+        spellcheck="false"
+      />
+      <button id="go" type="submit">Roast me 🔥</button>
+    </form>
+    <p class="hint" id="hint">No login. Nothing stored. Just your public repos and a lot of judgment.</p>
+
+    <section id="status" class="status" hidden></section>
+
+    <section id="result" class="result" hidden>
+      <!-- Share card -->
+      <div id="card" class="card">
+        <div class="card-top">
+          <img id="avatar" class="avatar" alt="" crossorigin="anonymous" />
+          <div class="card-id">
+            <div class="card-name" id="card-name">·</div>
+            <div class="card-handle" id="card-handle">@·</div>
+          </div>
+          <div class="score-badge">
+            <div class="score-num" id="score-num">0</div>
+            <div class="score-label" id="score-label">/100</div>
+          </div>
+        </div>
+
+        <div class="verdict" id="verdict">·</div>
+
+        <ul class="roasts" id="roasts"></ul>
+
+        <div class="stat-row" id="stat-row"></div>
+
+        <div class="card-foot">
+          <span id="foot-tag">github-roast · roast yourself before they do</span>
+        </div>
+      </div>
+
+      <!-- Glow up -->
+      <div class="glowup" id="glowup">
+        <h2>✨ The glow-up (do these and nobody can roast you)</h2>
+        <ul id="glowup-list"></ul>
+      </div>
+
+      <div class="actions">
+        <button id="download" class="btn-primary">⬇︎ Download card</button>
+        <button id="copy" class="btn-ghost">Copy roast</button>
+        <button id="again" class="btn-ghost">Roast someone else</button>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <span>Built for laughs. Data from the public GitHub API, never stored.</span>
+    </footer>
+  </main>
+
+  <canvas id="export-canvas" width="1200" height="1500" hidden></canvas>
+
+  <script src="roast-engine.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
